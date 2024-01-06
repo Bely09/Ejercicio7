@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class ArregloBidimensional {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] arreglo = new int[4][4];
+
+        System.out.println("Ingrese los elementos del arreglo:");
+
+        for (int i = 0; i < arreglo.length; i++) {
+            for (int j = 0; j < arreglo[i].length; j++) {
+                System.out.print("Elemento en la posición [" + i + "][" + j + "]: ");
+                arreglo[i][j] = scanner.nextInt();
+            }
+        }
+        int valorMaximo = arreglo[0][0];
+        int valorMinimo = arreglo[0][0];
+        int suma = 0;
+
+        for (int i = 0; i < arreglo.length; i++) {
+            for (int j = 0; j < arreglo[i].length; j++) {
+                
+                if (arreglo[i][j] > valorMaximo) {
+                    valorMaximo = arreglo[i][j];
+                }
+
+                if (arreglo[i][j] < valorMinimo) {
+                    valorMinimo = arreglo[i][j];
+                }
+                suma += arreglo[i][j];
+            }
+        }
+
+        double promedio = (double) suma / (4 * 4);
+        
+        System.out.println("Valor máximo: " + valorMaximo);
+        System.out.println("Valor mínimo: " + valorMinimo);
+        System.out.println("Valor promedio: " + promedio);
+    }
+}
